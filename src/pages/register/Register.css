@@ -1,0 +1,19 @@
+.registerBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100dvh;
+}
+
+.registerData {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  width: 50vw;
+}
+
+.registerData input {
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid grey;
+}

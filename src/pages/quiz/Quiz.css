@@ -1,0 +1,244 @@
+* {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+.quizContainer {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 90dvh 10dvh;
+  height: 100dvh;
+  background-image: url("/images/english.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.scoreBoard {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  height: 100%;
+}
+
+.scoreDotLabel {
+  display: inline-flex;
+  align-items: center;
+}
+
+.scoreDotInput {
+  display: none;
+}
+
+.scoreDot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid #999;
+  background: transparent;
+}
+
+.scoreDot.green {
+  background: #22c55e;
+  border-color: #22c55e;
+}
+
+.scoreDot.red {
+  background: #ef4444;
+  border-color: #ef4444;
+}
+
+.quizFinished {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100dvh;
+  gap: 2rem;
+}
+
+.resultParagraph {
+  width: 50%;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 10px;
+  line-height: 1.5;
+  color: rgb(39, 39, 39);
+  text-align: center;
+}
+
+.quizBoard {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+  gap: 1rem;
+}
+
+.questionBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .3rem;
+  width: 95%;
+}
+
+.statement {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box;
+  line-height: 1.5;
+  height: 19dvh;
+  padding: 0 5px;
+  width: 95%;
+  color: rgb(42, 41, 41);
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.alternatives {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  line-height: 1.5;
+  border: 1px solid gray;
+  border-radius: 5px;
+  color: rgb(41, 41, 41);
+  padding: 0 10px;
+  width: 95%;
+  height: 10dvh;
+  color: rgb(42, 41, 41);
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+}
+
+.alternatives.selected {
+  border: 1px solid rgb(195, 193, 193);
+  background-color: rgb(195, 193, 193);
+}
+
+.alternatives.right {
+  border: 1px solid rgb(114, 189, 114);
+  background-color: rgb(114, 189, 114);
+  color: white;
+}
+
+.alternatives.wrong {
+  border: 1px solid rgb(222, 109, 109);
+  background-color: rgb(222, 109, 109);
+  color: white;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  width: 90%;
+}
+
+.buttons button {
+  padding: 10px 15px;
+  border: 2px solid white;
+  background-color: white;
+  border-radius: 20px;
+  color: rgb(37, 37, 37);
+}
+
+.verifyAnswer.disabled,
+.nextQuestion.disabled {
+  opacity: .4;
+  pointer-events: none;
+}
+
+.content {
+  color: gray;
+}
+
+.explanation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 85vw;
+  padding: .5rem;
+  border-radius: 5px;
+  margin: 0;
+  line-height: 1.5;
+  color: #fff;
+  display: none;
+}
+
+.explanation.right {
+  background-color: rgb(114, 189, 114);
+  border: 1px solid rgb(114, 189, 114);
+  color: white;
+  height: 13dvh;
+  display: none;
+}
+
+.explanation.wrong {
+  background-color: rgb(189, 81, 81);
+  color: white;
+  display: none;
+}
+
+@media (min-width: 769px) {
+
+  .quizContainer {
+    grid-template-columns: 95% 5%;
+    grid-template-rows: 100vh;
+
+  }
+
+  .scoreBoard {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+    border-right: 1px solid white;
+  }
+
+  .quizBoard {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    justify-content: center;
+  }
+
+  .questionBox {
+    width: 1100px;
+    align-items: end;
+  }
+
+  .statement {
+    width: 60%;
+  }
+
+  .alternatives {
+    width: 60%;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: end;
+    gap: 1rem;
+    width: 100%;
+    margin-top: 1rem;
+
+
+  }
+
+  .alternatives:hover {
+    background: rgb(229, 227, 227);
+    color: rgb(46, 46, 46);
+    cursor: pointer;
+  }
+
+
+}

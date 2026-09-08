@@ -1,0 +1,24 @@
+.loginBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100dvh;
+  background-image: url("./images/english.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+}
+
+.loginData {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  width: 50vw;
+}
+
+.loginData input {
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid grey;
+}

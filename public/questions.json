@@ -1,0 +1,133 @@
+[
+  {
+    "question": "1) Which sentence is grammatically correct?",
+    "alternatives": [
+      "Had I knew about it, I would have acted differently.",
+      "Had I known about it, I would have acted differently.",
+      "Had I know about it, I would have acted differently.",
+      "If I had knew about it, I would acted differently.",
+      "If I would have known about it, I had acted differently."
+    ],
+    "correctAnswer": 1,
+    "level": "a1",
+    "content": "grammar",
+    "explanation": "The correct structure is 'Had I known...', which is an inverted form of the third conditional: 'If I had known...'."
+  },
+  {
+    "question": "2) What does the expression 'to go to great lengths' mean?",
+    "alternatives": [
+      "To travel a very long distance",
+      "To avoid doing something difficult",
+      "To make a considerable effort to achieve something",
+      "To postpone an important decision",
+      "To exaggerate the importance of something"
+    ],
+    "correctAnswer": 2,
+    "explanation": "'To go to great lengths' means to make a lot of effort or do whatever is necessary to achieve something.",
+    "motivation": "Don't give up! Idiomatic expressions are one of the hardest parts of advanced English."
+  },
+  {
+    "question": "3) Choose the sentence with the correct use of 'would rather'.",
+    "alternatives": [
+      "I'd rather you don't tell anyone.",
+      "I'd rather you didn't tell anyone.",
+      "I'd rather you won't tell anyone.",
+      "I'd rather you haven't told anyone.",
+      "I'd rather you aren't telling anyone."
+    ],
+    "correctAnswer": 1,
+    "explanation": "After 'I'd rather' when expressing a preference about someone else's action, we normally use the past simple: 'I'd rather you didn't tell anyone.'",
+    "motivation": "Great effort! Subtle grammatical structures take time to master."
+  },
+  {
+    "question": "4) What is the closest meaning of 'The proposal was met with considerable resistance'?",
+    "alternatives": [
+      "The proposal was immediately accepted.",
+      "The proposal was completely ignored.",
+      "The proposal encountered significant opposition.",
+      "The proposal was unexpectedly successful.",
+      "The proposal was formally withdrawn."
+    ],
+    "correctAnswer": 2,
+    "explanation": "'Was met with considerable resistance' means that the proposal encountered significant opposition or disagreement.",
+    "motivation": "Keep going! Understanding formal English takes more than simply translating individual words."
+  },
+  {
+    "question": "5) Which sentence correctly uses the subjunctive form?",
+    "alternatives": [
+      "It is essential that he is present at the meeting.",
+      "It is essential that he be present at the meeting.",
+      "It is essential that he was present at the meeting.",
+      "It is essential that he being present at the meeting.",
+      "It is essential that he will be present at the meeting."
+    ],
+    "correctAnswer": 1,
+    "explanation": "In formal English, expressions such as 'It is essential that...' can be followed by the subjunctive: 'that he be present'.",
+    "motivation": "Very challenging! You're dealing with one of the more advanced areas of English grammar."
+  },
+  {
+    "question": "6) What does 'notwithstanding' mean in the sentence: 'Notwithstanding the difficulties, the project was completed on time'?",
+    "alternatives": [
+      "Because of",
+      "Before",
+      "Despite",
+      "As a result of",
+      "Instead of"
+    ],
+    "correctAnswer": 2,
+    "explanation": "'Notwithstanding' means 'despite' or 'in spite of'.",
+    "motivation": "Keep pushing forward! Formal vocabulary can be difficult even for advanced learners."
+  },
+  {
+    "question": "7) Choose the sentence that correctly uses a mixed conditional.",
+    "alternatives": [
+      "If I had studied medicine, I would be a doctor now.",
+      "If I studied medicine, I would have been a doctor now.",
+      "If I would study medicine, I had been a doctor now.",
+      "If I had studied medicine, I would have been a doctor now.",
+      "If I study medicine, I would have been a doctor now."
+    ],
+    "correctAnswer": 0,
+    "explanation": "This is a mixed conditional: a past condition ('had studied') with a present result ('would be a doctor now').",
+    "motivation": "Excellent attempt! Mixed conditionals are genuinely advanced, so don't be discouraged."
+  },
+  {
+    "question": "8) What does 'to have something at one's disposal' mean?",
+    "alternatives": [
+      "To have something available for use",
+      "To have something that must be thrown away",
+      "To have something that belongs to someone else",
+      "To have something that cannot be accessed",
+      "To have something that has already been used"
+    ],
+    "correctAnswer": 0,
+    "explanation": "If something is 'at your disposal', it is available for you to use whenever necessary.",
+    "motivation": "Keep learning! Mastering idiomatic vocabulary will make your English sound much more natural."
+  },
+  {
+    "question": "9) Which sentence correctly uses the inversion required after 'Rarely'?",
+    "alternatives": [
+      "Rarely I have seen such a remarkable performance.",
+      "Rarely have I seen such a remarkable performance.",
+      "Rarely did I have seen such a remarkable performance.",
+      "Rarely I saw have such a remarkable performance.",
+      "Rarely have seen I such a remarkable performance."
+    ],
+    "correctAnswer": 1,
+    "explanation": "When a negative or restrictive adverb such as 'rarely' begins a sentence, subject-auxiliary inversion is often required: 'Rarely have I seen...'.",
+    "motivation": "Fantastic challenge! Inversion is a strong indicator of advanced English proficiency."
+  },
+  {
+    "question": "10) What does 'had it not been for' mean in the sentence: 'Had it not been for your help, I would have failed'?",
+    "alternatives": [
+      "Because you refused to help",
+      "If your help had not existed",
+      "Even though you helped",
+      "After you decided to help",
+      "Because I did not need your help"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'Had it not been for your help' is an inverted conditional structure meaning 'If it had not been for your help'.",
+    "motivation": "You made it this far! Keep practicing these advanced structures and your English will become increasingly precise."
+  }
+]
