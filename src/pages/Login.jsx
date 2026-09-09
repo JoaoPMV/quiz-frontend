@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { loginFetch } from "../../services/authService";
-import "./Login.css";
+import { loginFetch } from "../services/authService";
+import "./Data.css";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -27,8 +27,8 @@ const Login = () => {
   };
 
   return (
-    <div className="loginBox">
-      <form className="loginData" onSubmit={handleSubmit}>
+    <div className="dataContainer">
+      <form className="dataForm" onSubmit={handleSubmit}>
         <input
           name="email"
           type="email"
@@ -48,17 +48,13 @@ const Login = () => {
 
         <button type="submit">Entrar</button>
 
-        <div class="links">
-          <p style={{ marginTop: "10px" }}>
-            <Link to="/forgot-password">Esqueci minha senha</Link>
-          </p>
-          <p style={{ marginTop: "10px" }}>
-            <Link to="/register">Criar Usuário</Link>
-          </p>
-        </div>
-
         {erro && <p style={{ color: "red" }}>{erro}</p>}
       </form>
+
+      <div className="dataNavigation">
+        <Link to="/register">Criar Usuário</Link>
+        <Link to="/forgot-password">Esqueci minha senha</Link>
+      </div>
     </div>
   );
 };

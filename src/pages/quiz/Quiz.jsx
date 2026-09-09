@@ -139,10 +139,12 @@ const Testes = () => {
       </div>
 
       <div className="quizBoard">
-        <div className="questionBox">
+        <div className="teste">
           <h4 className="content">{question.content}</h4>
           <h4 className="statement">{question.question}</h4>
+        </div>
 
+        <div className="alternativesBox">
           {question.alternatives.map((alternative) => (
             <p
               key={alternative.id}
@@ -167,21 +169,22 @@ const Testes = () => {
               {alternative.text}
             </p>
           ))}
-          <div className="buttons">
-            <button
-              className={`verifyAnswer ${selectedAnswer === null || isCorrect !== null ? "disabled" : ""}`}
-              onClick={verifyAnswer}
-            >
-              Verificar Resposta
-            </button>
+        </div>
 
-            <button
-              className={`nextQuestion ${isCorrect === null ? "disabled" : ""}`}
-              onClick={nextQuestion}
-            >
-              Próxima Pergunta
-            </button>
-          </div>
+        <div className="buttons">
+          <button
+            className={`verifyAnswer ${selectedAnswer === null || isCorrect !== null ? "disabled" : ""}`}
+            onClick={verifyAnswer}
+          >
+            Verificar Resposta
+          </button>
+
+          <button
+            className={`nextQuestion ${isCorrect === null ? "disabled" : ""}`}
+            onClick={nextQuestion}
+          >
+            Próxima Pergunta
+          </button>
         </div>
 
         <p

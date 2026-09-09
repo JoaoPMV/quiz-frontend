@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import "./Register.css";
-import { registerFetch } from "../../services/userService";
+import { Link, useNavigate } from "react-router-dom";
+import { registerFetch } from "../services/userService";
+import "./Data.css";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -34,8 +34,8 @@ const Register = () => {
   };
 
   return (
-    <div className="registerBox">
-      <form className="registerData" onSubmit={handleSubmit}>
+    <div className="dataContainer">
+      <form className="dataForm" onSubmit={handleSubmit}>
         <input
           name="firstName"
           type="text"
@@ -62,6 +62,11 @@ const Register = () => {
         />
         <button type="submit">Cadastrar</button>
       </form>
+
+      <div className="dataNavigation">
+        <Link to="/">Fazer login</Link>
+        <Link to="/forgot-password">Esqueci minha senha</Link>
+      </div>
     </div>
   );
 };

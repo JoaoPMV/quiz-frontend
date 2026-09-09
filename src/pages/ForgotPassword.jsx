@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { forgotPassword } from "../../services/userService";
-import "./ForgotPassword.css";
+import { Link } from "react-router-dom";
+import { forgotPassword } from "../services/userService";
+import "./Data.css";
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
@@ -21,8 +22,9 @@ const ForgotPassword = () => {
   };
 
   return (
-    <div className="forgotBox">
-      <form className="forgotData" onSubmit={handleSubmit}>
+    <div className="dataContainer">
+      <p>Você receberá em seu email um link para redefinir a sua senha</p>
+      <form className="dataForm" onSubmit={handleSubmit}>
         <input
           name="email"
           type="email"
@@ -31,8 +33,13 @@ const ForgotPassword = () => {
           onChange={(e) => setEmail(e.target.value)}
           required
         />
-        <button type="submit">Enviar link de recuperação</button>
+        <button type="submit">Enviar Link</button>
       </form>
+
+      <div className="dataNavigation">
+        <Link to="/register">Criar Usuário</Link>
+        <Link to="/forgot-password">Esqueci minha senha</Link>
+      </div>
 
       {msg && <p style={{ color: "green" }}>{msg}</p>}
       {erro && <p style={{ color: "red" }}>{erro}</p>}

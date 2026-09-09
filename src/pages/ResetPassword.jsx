@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
-import { resetPassword } from "../../services/userService";
-import "./ResetPassword.css";
+import { resetPassword } from "../services/userService";
+import "./Data.css";
 
 const ResetPassword = () => {
   const [params] = useSearchParams();
@@ -31,8 +31,8 @@ const ResetPassword = () => {
   }
 
   return (
-    <div className="resetBox">
-      <form className="resetData" onSubmit={handleSubmit}>
+    <div className="dataContainer">
+      <form className="dataForm" onSubmit={handleSubmit}>
         <input
           type="password"
           placeholder="Nova senha"

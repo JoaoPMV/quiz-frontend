@@ -1,9 +1,9 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Quiz from "./pages/quiz/Quiz";
-import Register from "./pages/register/Register";
-import Login from "./pages/login/Login";
-import ForgotPassword from "./pages/forgot/ForgotPassword";
-import ResetPassword from "./pages/reset/ResetPassword";
+import Register from "./pages/Register";
+import Login from "./pages/Login";
+import ForgotPassword from "./pages/ForgotPassword";
+import ResetPassword from "./pages/ResetPassword";
 import Delete from "./pages/delete/Delete";
 import Level from "./pages/level/Level";
 
