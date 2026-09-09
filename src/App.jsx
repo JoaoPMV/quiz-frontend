@@ -13,7 +13,7 @@ function App() {
         <Route path="/quiz" element={<Quiz />} />
         <Route path="/register" element={<Register />} />
         <Route path="/" element={<Login />} />
-        <Route path="/forgot" element={<ForgotPassword />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/delete" element={<Delete />} />
       </Routes>

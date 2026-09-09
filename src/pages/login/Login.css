@@ -13,12 +13,34 @@
 .loginData {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: .5rem;
   width: 50vw;
 }
 
+.loginData button {
+  width: 5rem;
+  height: 2rem;
+}
+
 .loginData input {
   padding: 5px;
+  width: 25rem;
   border-radius: 5px;
   border: 1px solid grey;
+}
+
+.links {
+
+  width: 25rem;
+  margin-top: 1rem;
+  display: flex;
+
+
+  gap: 5rem;
+}
+
+.links a {
+  text-decoration: none;
 }

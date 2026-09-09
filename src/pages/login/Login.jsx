@@ -48,9 +48,14 @@ const Login = () => {
 
         <button type="submit">Entrar</button>
 
-        <p style={{ marginTop: "10px" }}>
-          <Link to="/forgot-password">Esqueci minha senha</Link>
-        </p>
+        <div class="links">
+          <p style={{ marginTop: "10px" }}>
+            <Link to="/forgot-password">Esqueci minha senha</Link>
+          </p>
+          <p style={{ marginTop: "10px" }}>
+            <Link to="/register">Criar Usuário</Link>
+          </p>
+        </div>
 
         {erro && <p style={{ color: "red" }}>{erro}</p>}
       </form>

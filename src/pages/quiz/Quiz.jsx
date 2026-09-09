@@ -43,37 +43,24 @@ const Testes = () => {
       try {
         const data = await getQuestions();
 
-        // 1) Filtra apenas level = "c1"
-        const c1Questions = data.filter((q) => q.level === "c1");
+        // Filtra somente level = "b1"
+        const b1Questions = data.filter((q) => q.level === "b1");
 
-        // 2) Separa por content
-        const grammar = c1Questions.filter((q) => q.content === "grammar");
-        const adjetives = c1Questions.filter((q) => q.content === "adjetives");
-
-        // 3) Embaralha cada grupo de perguntas
-        const shuffledGrammar = [...grammar].sort(() => Math.random() - 0.5);
-        const shuffledAdjetives = [...adjetives].sort(
+        // Embaralha perguntas
+        const shuffledQuestions = [...b1Questions].sort(
           () => Math.random() - 0.5,
         );
 
-        // 4) Pega 5 de cada
-        const selected = [
-          ...shuffledGrammar.slice(0, 8),
-          ...shuffledAdjetives.slice(0, 8),
-        ];
+        // Quantidade que você quer no quiz (ajuste aqui)
+        const selected = shuffledQuestions.slice(0, 10);
 
-        // 5) Embaralha as alternativas de cada pergunta
+        // Embaralha alternativas de cada pergunta
         const withShuffledAlternatives = selected.map((q) => ({
           ...q,
           alternatives: [...q.alternatives].sort(() => Math.random() - 0.5),
         }));
 
-        // 6) (Opcional) Embaralha a ordem final das 10 perguntas
-        const finalQuestions = [...withShuffledAlternatives].sort(
-          () => Math.random() - 0.5,
-        );
-
-        setQuestions(finalQuestions);
+        setQuestions(withShuffledAlternatives);
       } catch (err) {
         console.error("Erro ao carregar questões:", err);
       }
@@ -114,7 +101,7 @@ const Testes = () => {
   };
 
   const nextQuestion = () => {
-    const maxQuestions = 16;
+    const maxQuestions = 10;
     const lastQuestionIndex = maxQuestions - 1; // 15
 
     if (currentQuestion < lastQuestionIndex) {
@@ -129,7 +116,7 @@ const Testes = () => {
   return (
     <div className="quizContainer">
       <div className="scoreBoard">
-        {Array.from({ length: 16 }).map((_, index) => (
+        {Array.from({ length: 10 }).map((_, index) => (
           <label key={index} className="scoreDotLabel">
             <input
               type="radio"
