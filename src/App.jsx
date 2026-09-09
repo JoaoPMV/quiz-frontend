@@ -5,6 +5,7 @@ import Login from "./pages/login/Login";
 import ForgotPassword from "./pages/forgot/ForgotPassword";
 import ResetPassword from "./pages/reset/ResetPassword";
 import Delete from "./pages/delete/Delete";
+import Level from "./pages/level/Level";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/delete" element={<Delete />} />
+        <Route path="/level" element={<Level />} />
       </Routes>
     </BrowserRouter>
   );
