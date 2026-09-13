@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { registerFetch } from "../services/userService";
 import "./Data.css";
+import "./Buttons.css";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -60,7 +61,9 @@ const Register = () => {
           placeholder="Senha"
           onChange={handleChange}
         />
-        <button type="submit">Cadastrar</button>
+        <button type="submit" className="dataButton shortButton">
+          Cadastrar
+        </button>
       </form>
 
       <div className="dataNavigation">

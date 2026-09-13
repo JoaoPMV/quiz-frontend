@@ -2,10 +2,11 @@ import { useState, useEffect, useRef } from "react";
 import Hover from "/audios/hover.wav";
 import Correct from "/audios/correct.wav";
 import Incorrect from "/audios/incorrect.wav";
-import { getQuestions } from "../../services/quizService";
+import { getQuestions } from "../services/quizService";
 import "./Quiz.css";
+import "./Buttons.css";
 
-const Testes = () => {
+const Quiz = ({ level }) => {
   const [questions, setQuestions] = useState([]);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [isCorrect, setIsCorrect] = useState(null);
@@ -17,12 +18,14 @@ const Testes = () => {
   const hoverSound = useRef(new Audio(Hover));
   const correctSound = useRef(new Audio(Correct));
   const incorrectSound = useRef(new Audio(Incorrect));
+  const questionsLoaded = useRef(false);
 
   const question = questions[currentQuestion];
 
   const playHoverSound = () => {
     const a = hoverSound.current;
     a.currentTime = 0;
+    a.volume = 0.2;
     a.play().catch(() => {});
   };
 
@@ -39,22 +42,22 @@ const Testes = () => {
   };
 
   useEffect(() => {
+    if (questionsLoaded.current) return;
+
+    questionsLoaded.current = true;
+
     const loadQuestions = async () => {
       try {
         const data = await getQuestions();
 
-        // Filtra somente level = "b1"
-        const b1Questions = data.filter((q) => q.level === "b1");
+        const levelQuestions = data.filter((q) => q.level === level);
 
-        // Embaralha perguntas
-        const shuffledQuestions = [...b1Questions].sort(
+        const shuffledQuestions = [...levelQuestions].sort(
           () => Math.random() - 0.5,
         );
 
-        // Quantidade que você quer no quiz (ajuste aqui)
         const selected = shuffledQuestions.slice(0, 10);
 
-        // Embaralha alternativas de cada pergunta
         const withShuffledAlternatives = selected.map((q) => ({
           ...q,
           alternatives: [...q.alternatives].sort(() => Math.random() - 0.5),
@@ -67,10 +70,21 @@ const Testes = () => {
     };
 
     loadQuestions();
-  }, []);
+  }, [level]);
+
+  if (!level) {
+    return <div>Selecione um nível primeiro.</div>;
+  }
 
   if (questions.length === 0) {
-    return <div>Loading...</div>;
+    return (
+      <div className="quizLoading">
+        <div className="loadingCard">
+          <div className="loadingSpinner"></div>
+          <p>Loading questions...</p>
+        </div>
+      </div>
+    );
   }
 
   if (quizFinished) {
@@ -84,11 +98,10 @@ const Testes = () => {
     );
   }
 
-  const verifyAnswer = () => {
-    if (selectedAnswer === null) return;
+  const verifyAnswer = (answerId) => {
+    const correct = answerId === question.correctAnswer;
 
-    // compara id selecionado com correctAnswer (string)
-    const correct = selectedAnswer === question.correctAnswer;
+    setSelectedAnswer(answerId);
     setIsCorrect(correct);
     setDotResults((prev) => [...prev, correct ? "right" : "wrong"]);
 
@@ -154,15 +167,13 @@ const Testes = () => {
               }}
               onClick={() => {
                 if (isCorrect !== null) return;
-                setSelectedAnswer(alternative.id); // salva id
+                verifyAnswer(alternative.id);
               }}
               className={`alternatives ${
                 selectedAnswer === alternative.id
-                  ? isCorrect === null
-                    ? "selected"
-                    : isCorrect
-                      ? "right"
-                      : "wrong"
+                  ? isCorrect
+                    ? "right"
+                    : "wrong"
                   : ""
               }`}
             >
@@ -173,17 +184,10 @@ const Testes = () => {
 
         <div className="buttons">
           <button
-            className={`verifyAnswer ${selectedAnswer === null || isCorrect !== null ? "disabled" : ""}`}
-            onClick={verifyAnswer}
-          >
-            Verificar Resposta
-          </button>
-
-          <button
-            className={`nextQuestion ${isCorrect === null ? "disabled" : ""}`}
+            className={`dataButton longButton ${isCorrect === null ? "disabled" : ""}`}
             onClick={nextQuestion}
           >
-            Próxima Pergunta
+            Próxima
           </button>
         </div>
 
@@ -197,4 +201,4 @@ const Testes = () => {
   );
 };
 
-export default Testes;
+export default Quiz;

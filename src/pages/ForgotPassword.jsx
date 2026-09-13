@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { forgotPassword } from "../services/userService";
-import "./Data.css";
+import "./Buttons.css";
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
@@ -33,12 +33,14 @@ const ForgotPassword = () => {
           onChange={(e) => setEmail(e.target.value)}
           required
         />
-        <button type="submit">Enviar Link</button>
+        <button type="submit" className="dataButton shortButton">
+          Enviar Link
+        </button>
       </form>
 
       <div className="dataNavigation">
+        <Link to="/">Fazer login</Link>
         <Link to="/register">Criar Usuário</Link>
-        <Link to="/forgot-password">Esqueci minha senha</Link>
       </div>
 
       {msg && <p style={{ color: "green" }}>{msg}</p>}

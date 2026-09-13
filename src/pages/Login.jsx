@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { loginFetch } from "../services/authService";
 import "./Data.css";
+import "./Buttons.css";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -20,7 +21,7 @@ const Login = () => {
     try {
       const data = await loginFetch(formData);
       localStorage.setItem("token", data.token);
-      navigate("/quiz");
+      navigate("/level");
     } catch (err) {
       setErro(err?.erro || err?.message || "Email ou senha inválidos");
     }
@@ -46,7 +47,9 @@ const Login = () => {
           required
         />
 
-        <button type="submit">Entrar</button>
+        <button type="submit" className="dataButton shortButton">
+          Entrar
+        </button>
 
         {erro && <p style={{ color: "red" }}>{erro}</p>}
       </form>
