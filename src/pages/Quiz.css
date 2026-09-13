@@ -44,7 +44,7 @@
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  border: 2px solid #999;
+  border: 2px solid rgb(238, 237, 237);
   background: transparent;
 }
 
@@ -118,8 +118,8 @@
   align-items: center;
   box-sizing: border-box;
   line-height: 1.5;
-  border: 1px solid gray;
-  box-shadow: 0 0 3px gray;
+  border: 1px solid rgb(237, 115, 115);
+  box-shadow: 0 0 3px rgb(237, 115, 115);
   border-radius: 5px;
   color: rgb(41, 41, 41);
   padding: 0 10px;
@@ -138,6 +138,7 @@
       rgb(114, 189, 114),
       rgb(82, 165, 105));
   color: rgb(103, 102, 102);
+  box-shadow: 0 0 3px rgb(82, 165, 105)
 }
 
 .alternatives.wrong {
@@ -156,10 +157,8 @@
   width: 90%;
 }
 
-.dataButton.disabled,
-.nextQuestion.disabled {
-  opacity: .5;
-  pointer-events: none;
+.dataButton:disabled {
+  opacity: .2;
 }
 
 .explanation {

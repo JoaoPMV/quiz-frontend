@@ -3,7 +3,7 @@ import { useRef } from "react";
 import Hover from "/audios/hover.wav";
 import "./Data.css";
 
-const Level = ({ onSelectLevel }) => {
+const Level = () => {
   const hoverSound = useRef(new Audio(Hover));
   const playHoverSound = () => {
     const a = hoverSound.current;
@@ -15,8 +15,7 @@ const Level = ({ onSelectLevel }) => {
   const navigate = useNavigate();
 
   const handleSelect = (lvl) => {
-    onSelectLevel(lvl);
-    navigate("/quiz");
+    navigate(`/quiz/${lvl}`);
   };
 
   return (

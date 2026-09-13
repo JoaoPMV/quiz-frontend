@@ -1,3 +1,10 @@
+body {
+  background-image: url("/images/english.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 /* Aqui começa login, register, forgot-password, reset-password  */
 
 .dataContainer {
@@ -6,10 +13,6 @@
   justify-content: center;
   align-items: center;
   height: 100dvh;
-  background-image: url("/images/english.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   gap: 2rem;
 }
 
@@ -64,7 +67,7 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  height: 100vh;
+  height: 100dvh;
   justify-content: center;
   align-items: center;
   background-image: url("/images/english.png");

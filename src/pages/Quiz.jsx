@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { useParams } from "react-router-dom";
 import Hover from "/audios/hover.wav";
 import Correct from "/audios/correct.wav";
 import Incorrect from "/audios/incorrect.wav";
@@ -6,7 +7,8 @@ import { getQuestions } from "../services/quizService";
 import "./Quiz.css";
 import "./Buttons.css";
 
-const Quiz = ({ level }) => {
+const Quiz = () => {
+  const { level } = useParams();
   const [questions, setQuestions] = useState([]);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [isCorrect, setIsCorrect] = useState(null);
@@ -184,7 +186,9 @@ const Quiz = ({ level }) => {
 
         <div className="buttons">
           <button
-            className={`dataButton longButton ${isCorrect === null ? "disabled" : ""}`}
+            type="button"
+            disabled={isCorrect === null}
+            className="dataButton longButton"
             onClick={nextQuestion}
           >
             Próxima
