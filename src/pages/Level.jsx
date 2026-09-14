@@ -21,6 +21,11 @@ const Level = () => {
   return (
     <div>
       <div className="levelContainer">
+        <div className="welcome">
+          Welcome to our quiz! A fun and engaging way to improve your English.
+          Answer ten questions and, at the end, get personalized feedback on
+          your performance.
+        </div>
         <p>Choose your level</p>
         <div className="levelBox">
           <button className="keycap" onClick={() => handleSelect("a1")}>
