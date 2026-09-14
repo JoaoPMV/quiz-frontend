@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import Hover from "/audios/hover.wav";
 import Correct from "/audios/correct.wav";
 import Incorrect from "/audios/incorrect.wav";
@@ -9,6 +9,7 @@ import "./Buttons.css";
 
 const Quiz = () => {
   const { level } = useParams();
+  const navigate = useNavigate();
   const [questions, setQuestions] = useState([]);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [isCorrect, setIsCorrect] = useState(null);
@@ -16,6 +17,7 @@ const Quiz = () => {
   const [quizFinished, setQuizFinished] = useState(false);
   const [score, setScore] = useState(0);
   const [dotResults, setDotResults] = useState([]);
+  const [answersHistory, setAnswersHistory] = useState([]); // NOVO
 
   const hoverSound = useRef(new Audio(Hover));
   const correctSound = useRef(new Audio(Correct));
@@ -45,7 +47,6 @@ const Quiz = () => {
 
   useEffect(() => {
     if (questionsLoaded.current) return;
-
     questionsLoaded.current = true;
 
     const loadQuestions = async () => {
@@ -53,11 +54,9 @@ const Quiz = () => {
         const data = await getQuestions();
 
         const levelQuestions = data.filter((q) => q.level === level);
-
         const shuffledQuestions = [...levelQuestions].sort(
           () => Math.random() - 0.5,
         );
-
         const selected = shuffledQuestions.slice(0, 10);
 
         const withShuffledAlternatives = selected.map((q) => ({
@@ -74,9 +73,7 @@ const Quiz = () => {
     loadQuestions();
   }, [level]);
 
-  if (!level) {
-    return <div>Selecione um nível primeiro.</div>;
-  }
+  if (!level) return <div>Selecione um nível primeiro.</div>;
 
   if (questions.length === 0) {
     return (
@@ -89,23 +86,34 @@ const Quiz = () => {
     );
   }
 
-  if (quizFinished) {
-    return (
-      <div className="quizFinished">
-        <h1 className="StatementFinished">Quiz encerrado</h1>
-        <p className="resultParagraph">
-          Você acertou {score} de {questions.length}.
-        </p>
-      </div>
-    );
-  }
-
   const verifyAnswer = (answerId) => {
     const correct = answerId === question.correctAnswer;
 
     setSelectedAnswer(answerId);
     setIsCorrect(correct);
     setDotResults((prev) => [...prev, correct ? "right" : "wrong"]);
+
+    // salva histórico da questão respondida
+    const selectedAlternative = question.alternatives.find(
+      (a) => a.id === answerId,
+    );
+    const correctAlternative = question.alternatives.find(
+      (a) => a.id === question.correctAnswer,
+    );
+
+    setAnswersHistory((prev) => [
+      ...prev,
+      {
+        question: question.question,
+        content: question.content,
+        explanation: question.explanation,
+        selectedAnswerId: answerId,
+        selectedAnswerText: selectedAlternative?.text ?? "",
+        correctAnswerId: question.correctAnswer,
+        correctAnswerText: correctAlternative?.text ?? "",
+        isCorrect: correct,
+      },
+    ]);
 
     if (correct) {
       setScore((prev) => prev + 1);
@@ -116,8 +124,8 @@ const Quiz = () => {
   };
 
   const nextQuestion = () => {
-    const maxQuestions = 10;
-    const lastQuestionIndex = maxQuestions - 1; // 15
+    const maxQuestions = questions.length;
+    const lastQuestionIndex = maxQuestions - 1;
 
     if (currentQuestion < lastQuestionIndex) {
       setCurrentQuestion((prev) => prev + 1);
@@ -127,6 +135,54 @@ const Quiz = () => {
       setQuizFinished(true);
     }
   };
+
+  if (quizFinished) {
+    return (
+      <div className="quizFinished">
+        <div className="StatementFinished">
+          <p>Quiz finished</p>
+          <p>
+            <strong>
+              You got {score} out of {questions.length}
+              correct.
+            </strong>
+          </p>
+        </div>
+
+        <div className="reviewList">
+          {answersHistory.map((item, index) => (
+            <div
+              key={index}
+              className={`reviewCard ${item.isCorrect ? "right" : "wrong"}`}
+            >
+              <h3>
+                Question {index + 1}: {item.question}{" "}
+              </h3>
+              <p>Content: {item.content}</p>
+
+              <p>
+                Your answer: ({item.selectedAnswerId}) {item.selectedAnswerText}
+              </p>
+              <p>
+                Right answer: ({item.correctAnswerId}) {item.correctAnswerText}
+              </p>
+              <p>
+                <strong>Explanation:</strong> {item.explanation}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        <button
+          type="button"
+          className="dataButton longButton"
+          onClick={() => navigate("/level")}
+        >
+          Back to Menu
+        </button>
+      </div>
+    );
+  }
 
   return (
     <div className="quizContainer">

@@ -64,7 +64,17 @@
   align-items: center;
   justify-content: center;
   height: 100dvh;
-  gap: 2rem;
+  width: 100vw;
+  gap: 0.5rem;
+  padding: 10px 0;
+  box-sizing: border-box;
+}
+
+.StatementFinished {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: .3rem;
 }
 
 .resultParagraph {
@@ -75,6 +85,44 @@
   line-height: 1.5;
   color: rgb(39, 39, 39);
   text-align: center;
+}
+
+.reviewList {
+  display: flex;
+  flex-direction: column;
+
+  width: 90%;
+  height: 75vh;
+  overflow-y: auto;
+  gap: .5rem;
+  padding: 10px;
+}
+
+.reviewCard {
+  display: flex;
+  flex-direction: column;
+  gap: .2rem;
+
+  padding: 5px;
+}
+
+.reviewCard.right {
+
+  border: 2px solid rgb(11, 118, 11);
+  background: linear-gradient(135deg,
+      rgb(100, 200, 100),
+      rgb(160, 230, 160));
+  color: rgb(9, 89, 9);
+  box-shadow: 0 10px 15px rgba(11, 118, 11, 0.45);
+}
+
+.reviewCard.wrong {
+  border: 2px solid rgb(157, 41, 41);
+  background: linear-gradient(135deg,
+      rgb(235, 110, 110),
+      rgb(250, 155, 155));
+  color: rgb(130, 21, 21);
+  box-shadow: 0 10px 15px rgb(130, 21, 21);
 }
 
 .quizBoard {
@@ -198,7 +246,6 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-
 }
 
 .loadingCard {
@@ -312,7 +359,6 @@
   }
 
   .alternatives:hover {
-
     color: rgb(103, 102, 102);
     cursor: pointer;
   }
