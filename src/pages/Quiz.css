@@ -90,7 +90,6 @@
 .reviewList {
   display: flex;
   flex-direction: column;
-
   width: 90%;
   height: 75vh;
   overflow-y: auto;
@@ -102,7 +101,6 @@
   display: flex;
   flex-direction: column;
   gap: .2rem;
-
   padding: 5px;
 }
 
@@ -361,6 +359,18 @@
   .alternatives:hover {
     color: rgb(103, 102, 102);
     cursor: pointer;
+  }
+
+  .reviewList {
+    width: 50%;
+  }
+
+  .reviewCard {
+    display: flex;
+    flex-direction: column;
+    gap: .2rem;
+    padding: 20px;
+    border-radius: 10px;
   }
 
 }

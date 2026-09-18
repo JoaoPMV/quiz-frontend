@@ -143,8 +143,7 @@ const Quiz = () => {
           <p>Quiz finished</p>
           <p>
             <strong>
-              You got {score} out of {questions.length}
-              correct.
+              You got {score} out of {questions.length} correct.
             </strong>
           </p>
         </div>
