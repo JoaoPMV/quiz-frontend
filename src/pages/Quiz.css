@@ -164,17 +164,21 @@
   align-items: center;
   box-sizing: border-box;
   line-height: 1.5;
-  border: 1px solid rgb(237, 115, 115);
-  box-shadow: 0 0 3px rgb(237, 115, 115);
-  border-radius: 5px;
+  border: 1px solid blue;
+  box-shadow: 0 0 3px blue;
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
   color: rgb(41, 41, 41);
   padding: 0 10px;
   height: 10dvh;
   color: rgb(42, 41, 41);
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
-  gap: .5rem;
+}
 
+.alternatives:hover {
+  transform: translate(-3px, -3px);
+  font-weight: bold;
 }
 
 .alternatives.right {
@@ -183,8 +187,14 @@
       rgb(145, 210, 145),
       rgb(114, 189, 114),
       rgb(82, 165, 105));
-  color: rgb(103, 102, 102);
+  color: white;
+  font-weight: bold;
   box-shadow: 0 0 3px rgb(82, 165, 105)
+}
+
+.alternatives.right:hover,
+.alternatives.wrong:hover {
+  color: white;
 }
 
 .alternatives.wrong {
@@ -193,7 +203,9 @@
       rgb(235, 145, 145),
       rgb(222, 109, 109),
       rgb(195, 75, 75));
-  color: rgb(103, 102, 102);
+  color: white;
+  font-weight: bold;
+  box-shadow: 0 0 3px rgb(195, 75, 75);
 }
 
 .buttons {
